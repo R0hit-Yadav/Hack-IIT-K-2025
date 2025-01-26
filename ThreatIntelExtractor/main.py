@@ -123,15 +123,17 @@ def calculate_threat_severity(output):
 # Streamlit UI
 def main():
    
+    st.title("Hack IIT-K 2024-2025")
     st.title("Threat Intelligence Extractor")
     st.markdown("Extract structured threat intelligence from natural language threat reports.")
 
     # Sidebar for themes
+    st.sidebar.header("Team Sudarshan 🛞")
     st.sidebar.header("Menu")
 
    
     # Sidebar for bonus features
-    st.sidebar.header("Bonus Features")
+    st.sidebar.header("Features")
     report_type = st.sidebar.selectbox("Choose a Report Type", ["Upload Your Report", "Use Example Reports"])
     manage_malware = st.sidebar.selectbox("Manage Malware", ["None", "Add Malware", "Remove Malware"])
 
