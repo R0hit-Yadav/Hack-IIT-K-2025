@@ -60,3 +60,4 @@ def remove_custom_malware(malware_list):
    
     global malware_names
     malware_names = [name for name in malware_names if name not in malware_list]
+
