@@ -23,6 +23,8 @@ Before running the application, ensure you have the following installed:
 - **Required Libraries** (Install via pip):
 - 
   `cd ThreatIntelExtractor`
+  
+  `pip install spacy pandas requests`
 
   `pip install -r requirements`
 
