@@ -21,7 +21,6 @@ Before running the application, ensure you have the following installed:
 
 - **Python 3+**
 - **Required Libraries** (Install via pip):
-  ```bash
   `cd ThreatIntelExtractor`
   `pip install -r requirements`
 SpaCy Language Model: `python -m spacy download en_core_web_sm`
