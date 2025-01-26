@@ -3,11 +3,9 @@ import spacy
 import utils
 import json
 
-
 # Load SpaCy NLP model
 nlp = spacy.load("en_core_web_sm")
 
-# Function to extract threat intelligence
 def extract_threat_intelligence(report_text):
     """
     Extract threat intelligence from a natural language threat report.
@@ -56,7 +54,7 @@ def main():
     # Sidebar for bonus features
     st.sidebar.header("Bonus Features")
     report_type = st.sidebar.selectbox("Choose a Report Type", ["Upload Your Report", "Use Example Reports"])
-    add_custom_malware = st.sidebar.checkbox("Add Custom Malware")
+    manage_malware = st.sidebar.selectbox("Manage Malware", ["None", "Add Malware", "Remove Malware"])
 
     # Preloaded example reports
     example_reports = {
@@ -82,11 +80,17 @@ def main():
         selected_example = st.selectbox("Select an Example Report", list(example_reports.keys()))
         report_text = example_reports[selected_example]
 
-    # Input: Add Custom Malware
-    if add_custom_malware:
+    # Manage Malware: Add or Remove
+    if manage_malware == "Add Malware":
         custom_malware = st.text_input("Add Custom Malware (comma-separated)")
-        if custom_malware:
+        if st.button("Add Malware"):
             utils.add_custom_malware(custom_malware.split(","))
+            st.success(f"Added malware: {custom_malware}")
+    elif manage_malware == "Remove Malware":
+        malware_to_remove = st.multiselect("Select Malware to Remove", utils.malware_names)
+        if st.button("Remove Malware"):
+            utils.remove_custom_malware(malware_to_remove)
+            st.success(f"Removed malware: {', '.join(malware_to_remove)}")
 
     if report_text:
         # Display uploaded/selected report
