@@ -1,15 +1,15 @@
+import streamlit as st
 import spacy
 import utils
-from pprint import pprint
+from pprint import pformat
 
-# Load the SpaCy NLP model
 nlp = spacy.load("en_core_web_sm")
 
 def extract_threat_intelligence(report_text):
     """
     Extract threat intelligence from a natural language threat report.
     """
-    # Initialize output dictionary
+
     output = {
         'IoCs': {
             'IP addresses': [],
@@ -24,34 +24,47 @@ def extract_threat_intelligence(report_text):
         'Targeted Entities': [],
     }
 
-    # Process the text with SpaCy
+
     doc = nlp(report_text)
 
-    # Extract IoCs
+
     output['IoCs']['IP addresses'] = utils.extract_ip_addresses(report_text)
     output['IoCs']['Domains'] = utils.extract_domains(report_text)
 
-    # Extract TTPs
+
     output['TTPs'] = utils.extract_ttps(report_text)
 
-    # Extract Threat Actors
+  
     output['Threat Actor(s)'] = utils.extract_entities(doc, ['ORG', 'PERSON'])
 
-    # Extract Malware
+ 
     output['Malware'] = utils.extract_malware(report_text)
 
-    # Extract Targeted Entities
     output['Targeted Entities'] = utils.extract_targeted_entities(doc)
 
     return output
 
+
+def main():
+    st.title("Threat Intelligence Extractor")
+    st.write("Upload a natural language threat report to extract structured threat intelligence.")
+
+
+    uploaded_file = st.file_uploader("Upload Threat Report (TXT format)", type="txt")
+
+    if uploaded_file:
+    
+        report_text = uploaded_file.read().decode("utf-8")
+
+        st.subheader("Uploaded Report")
+        st.text_area("Threat Report Content", value=report_text, height=200)
+
+     
+        intelligence = extract_threat_intelligence(report_text)
+
+    
+        st.subheader("Extracted Threat Intelligence")
+        st.json(intelligence)
+
 if __name__ == "__main__":
-    # Read the sample report
-    with open('data/report_sample.txt', 'r') as file:
-        report_text = file.read()
-
-    # Extract intelligence
-    intelligence = extract_threat_intelligence(report_text)
-
-    # Display the results
-    pprint(intelligence)
+    main()
