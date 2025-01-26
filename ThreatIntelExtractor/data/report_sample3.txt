@@ -1,0 +1,5 @@
+The Lazarus Group, believed to be affiliated with North Korea, has launched a campaign targeting financial institutions. 
+The attack utilizes Andariel malware, known for its capabilities in financial theft. 
+The threat actor exploited an unpatched VPN vulnerability to gain initial access. 
+The malware was delivered through a watering hole attack on a popular finance-related website. 
+Communication was observed with the IP address 198.51.100.22 and domain securebank-payments.net.

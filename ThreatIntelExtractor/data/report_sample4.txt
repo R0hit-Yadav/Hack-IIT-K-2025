@@ -1,0 +1,4 @@
+FIN7, a notorious cybercriminal group, is actively targeting retail and hospitality sectors in its latest campaign. 
+The group leveraged Carbanak malware, commonly used for financial data theft. Initial access was gained by exploiting 
+vulnerabilities in POS systems. Spear-phishing emails containing malicious attachments were used as the primary delivery vector. 
+The malware was observed communicating with IP address 192.0.2.10 and domain pos-security-update.com.
