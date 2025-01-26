@@ -2,3 +2,4 @@ spacy
 pandas
 requests
 streamlit
+matplotlib

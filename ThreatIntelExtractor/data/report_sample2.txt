@@ -1,0 +1,5 @@
+The APT29 group, suspected to be linked to Russia, has initiated a campaign targeting healthcare organizations. 
+The attack employs WellMess malware, which is designed to exfiltrate sensitive research data. 
+Initial access was gained through brute-forcing weak credentials on exposed RDP services. 
+The malware delivery mechanism involved spear-phishing emails containing links to a fake login page. 
+The malware was observed communicating with the IP address 203.0.113.45 and domain fakeupdate-health.com.
