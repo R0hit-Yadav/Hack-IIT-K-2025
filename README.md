@@ -21,7 +21,7 @@ Before running the application, ensure you have the following installed:
 
 - **Python 3+**
 - **Required Libraries** (Install via pip):
-
+- 
   `cd ThreatIntelExtractor`
 
   `pip install -r requirements`
